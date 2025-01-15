@@ -1,78 +1,41 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>To-Do App</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        padding: 20px;
-      }
+ <head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>Tareas</title>
+   <link rel="stylesheet" href="style.css">
+ </head>
+ <body>
+   <h1>Tareas</h1>
 
-      h1 {
-        color: #333;
-      }
 
-      form {
-        margin-bottom: 20px;
-      }
+   <h2>Agregar Tarea</h2>
+   <form id="addTaskForm">
+     <input type="text" id="titulo" />
+     <input type="text" id="descripcion" />
+     <button type="submit">Agregar</button>
+   </form>
 
-      label {
-        display: block;
-        margin: 5px 0;
-      }
 
-      input[type="text"] {
-        padding: 8px;
-        width: 200px;
-        margin-bottom: 10px;
-      }
+   <h2>Tareas</h2>
+   <button id="getTasks">Mostrar tareas</button>
+   <br>
+   <input type="text" placeholder="titulo" id="tituloOpcion"/>
+   <button id="getTask">Filtrar por titulo</button>
+   <button id="deleteTask">Eliminar por titulo</button>
+   <button id="tickTask">Marcar como completado por titulo</button>
+   <table>
+     <thead>
+       <tr>
+         <th>Titulo</th>
+         <th>Descripcion</th>
+       </tr>
+     </thead>
+     <tbody id="taskList"></tbody>
+   </table>
 
-      button {
-        padding: 8px 16px;
-        margin-top: 10px;
-      }
 
-      ul {
-        list-style: none;
-        padding: 0;
-      }
-
-      li {
-        padding: 10px;
-        border-bottom: 1px solid #ddd;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-
-      .completed {
-        text-decoration: line-through;
-        color: gray;
-      }
-
-      .buttons {
-        display: flex;
-        gap: 10px;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>To-Do List</h1>
-
-    <h2>Agregar Tarea</h2>
-    <form id="addTaskForm">
-      <label for="titulo">Título</label>
-      <input type="text" id="titulo" required />
-      <label for="descripcion">Descripción</label>
-      <input type="text" id="descripcion" required />
-      <button type="submit">Agregar Tarea</button>
-    </form>
-
-    <h2>Lista de Tareas</h2>
-    <ul id="taskList"></ul>
-
-    <script src="script.js"></script>
-  </body>
+   <script src="script.js"></script>
+ </body>
 </html>

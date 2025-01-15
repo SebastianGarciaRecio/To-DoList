@@ -16,15 +16,21 @@ module.exports = {
 
 
    deleteTask: (req,res) => {
-       let ID = req.params.ID;
-       let respuesta = taskModel.deleteTask(ID);
+       let titulo = req.params.titulo;
+       let respuesta = taskModel.deleteTask(titulo);
        res.json({success: respuesta});
    },
 
 
    tickTask: (req,res) => {
-       let ID = req.params.ID;
-       let respuesta = taskModel.tickTask(ID);
+       let titulo = req.params.titulo;
+       let respuesta = taskModel.tickTask(titulo);
        res.json({success:respuesta});
+   },
+
+   getTask: (req,res) => {
+       let titulo = req.params.titulo;
+       let task = taskModel.getTask(titulo);
+       res.json({tarea: task})
    }
 }

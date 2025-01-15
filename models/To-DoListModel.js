@@ -1,22 +1,16 @@
 class Task {
-  #ID;
-  #titulo;
-  #descripcion;
-  #completado;
+  titulo;
+  descripcion;
+  completado;
 
-  constructor(ID, titulo, descripcion) {
-    this.#ID = ID;
-    this.#titulo = titulo;
-    this.#descripcion = descripcion;
-    this.#completado = false;
+  constructor(titulo, descripcion) {
+    this.titulo = titulo;
+    this.descripcion = descripcion;
+    this.completado = false;
   }
 
   complete() {
-    this.#completado = true;
-  }
-
-  getID() {
-    return this.#ID;
+    this.completado = true;
   }
 }
 
@@ -29,31 +23,39 @@ module.exports = {
 
   addTask: (taskReq) => {
     let resultado = false;
-    id = lista.length++;
-    let task = new Task(id, taskReq.titulo, taskReq.descripcion);
+    let task = new Task(taskReq.titulo, taskReq.descripcion);
+    lista.push(task);
+    resultado = true;
+    return resultado;
+  },
+
+  getTask: (titulo) => {
+    let resultado = false;
     for (let index = 0; index < lista.length; index++) {
-      if (lista[index].getID() == ID) {
-        lista.push(task);
+      if (lista[index].titulo == titulo) {
+        resultado = lista[index];
+      }
+    }
+    return resultado;
+  },
+
+  deleteTask: (titulo) => {
+    let resultado = false;
+    for (let index = 0; index < lista.length; index++) {
+      console.log(lista[index].titulo);
+      console.log(titulo);
+      if (lista[index].titulo == titulo) {
+        lista.splice(index, 1);
         resultado = true;
       }
     }
     return resultado;
   },
 
-  deleteTask: (ID) => {
+  tickTask: (titulo) => {
     let resultado = false;
     for (let index = 0; index < lista.length; index++) {
-      if (lista[index].getID() == ID) {
-        lista.splice(index, 1);
-        resultado = true;
-      }
-    }
-  },
-
-  tickTask: (ID) => {
-    let resultado = false;
-    for (let index = 0; index < lista.length; index++) {
-      if (lista[index].getID() == ID) {
+      if (lista[index].titulo == titulo) {
         lista[index].complete();
         resultado = true;
       }
