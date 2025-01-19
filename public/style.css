@@ -1,91 +1,106 @@
-/* General styles */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  h1, h2 {
-    color: #333;
-  }
-  
-  h1 {
-    margin-top: 20px;
-  }
-  
-  h2 {
-    margin-top: 10px;
-  }
-  
-  /* Form styles */
-  form {
-    background: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-  }
-  
-  form input[type="text"] {
-    width: calc(50% - 10px);
-    padding: 10px;
-    margin: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  form button {
-    padding: 10px 20px;
-    background: #28a745;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  form button:hover {
-    background: #218838;
-  }
-  
-  /* Button styles */
-  button {
-    padding: 10px 20px;
-    margin: 5px;
-    background: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background: #0056b3;
-  }
-  
-  /* Table styles */
-  table {
-    width: 80%;
-    border-collapse: collapse;
-    margin-top: 20px;
-  }
-  
-  table, th, td {
-    border: 1px solid #ddd;
-  }
-  
-  th, td {
-    padding: 10px;
-    text-align: left;
-  }
-  
-  th {
-    background: #f2f2f2;
-  }
-  
-  tbody tr:nth-child(even) {
-    background: #f9f9f9;
-  }
+  background-color: #fff;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  left: 30%;
+
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding-top: 10px;
+  min-height: 70px;
+  border-bottom: 4px solid #f4c842;
+}
+
+header h1 {
+  margin: 0;
+  padding: 0;
+  font-size: 24px;
+  line-height: 70px;
+  float: left;
+}
+
+
+input[type="text"] {
+  width: 10%;
+  padding: 10px;
+  margin: 10px 0;
+  font-size: 16px;
+  border-bottom: 3px solid #0b0b0c;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  outline: none;
+}
+
+#imgCompletado{
+  width: 2em;
+  height: 2em;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: rgb(88, 119, 109);
+  color: #fff;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 3%;
+}
+
+button:hover {
+  background-color: rgb(124, 165, 152);
+}
+
+
+
+table {
+  width: 30%;
+  margin-top: 20px;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+table th {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 0;
+}
+
+table td {
+  padding: 10px 0;
+  border-bottom: 3px solid  rgb(158, 209, 193);
+  font-size: 1.6em;
+}
+
+
+h1{
+  font-size: 2em;
+  color: rgb(88, 119, 109);
+}
+
+
+
+
+
+
+
+
+
+

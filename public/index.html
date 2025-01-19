@@ -1,41 +1,32 @@
 <!DOCTYPE html>
 <html lang="es">
- <head>
-   <meta charset="UTF-8" />
-   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   <title>Tareas</title>
-   <link rel="stylesheet" href="style.css">
- </head>
- <body>
-   <h1>Tareas</h1>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tareas</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>To-List</h1>
 
+    <form id="addTaskForm">
+      <input type="text" id="titulo" placeholder="titulo"/>
+      <input type="text" id="descripcion" placeholder="descripcion" />
+      <button type="submit" id="add">Add</button>
+    </form>
+    <br/>
 
-   <h2>Agregar Tarea</h2>
-   <form id="addTaskForm">
-     <input type="text" id="titulo" />
-     <input type="text" id="descripcion" />
-     <button type="submit">Agregar</button>
-   </form>
+    <input type="text" placeholder="titulo" id="tituloOpcion" />
+    <button id="getTask">Buscar </button>
+    <button id="deleteTask">Eliminar </button>
+    <button id="tickTask">Marcar como completado</button>
 
+    <table>
+      <thead>
+      </thead>
+      <tbody id="taskList"></tbody>
+    </table>
 
-   <h2>Tareas</h2>
-   <button id="getTasks">Mostrar tareas</button>
-   <br>
-   <input type="text" placeholder="titulo" id="tituloOpcion"/>
-   <button id="getTask">Filtrar por titulo</button>
-   <button id="deleteTask">Eliminar por titulo</button>
-   <button id="tickTask">Marcar como completado por titulo</button>
-   <table>
-     <thead>
-       <tr>
-         <th>Titulo</th>
-         <th>Descripcion</th>
-       </tr>
-     </thead>
-     <tbody id="taskList"></tbody>
-   </table>
-
-
-   <script src="script.js"></script>
- </body>
+    <script src="script.js"></script>
+  </body>
 </html>

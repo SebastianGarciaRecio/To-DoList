@@ -1,8 +1,37 @@
+
 document.getElementById("addTaskForm").addEventListener("submit", addtask);
-document.getElementById("getTasks").addEventListener("click", getTasks);
 document.getElementById("deleteTask").addEventListener("click", deleteTask);
 document.getElementById("tickTask").addEventListener("click", tickTask);
 document.getElementById("getTask").addEventListener("click", getTask);
+
+getTasks();
+
+async function getTasks() {
+  let tabla = document.getElementById("taskList");
+  try {
+    const response = await fetch("/tasks", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    let imagen = "img/cuadrado-en-blanco.png";
+    const data = await response.json();
+    let lista = data.tareas;
+    let filas = "";
+    for (let index = 0; index < lista.length; index++) {
+      let tarea = lista[index];
+      if(tarea.completado == true){
+        imagen = "img/tick.png";
+      }
+      filas += `<tr><td>${tarea.titulo}</td><td>${tarea.descripcion}</td><td><img src="${imagen}" id="imgCompletado"></td></tr>`;
+    }
+    tabla.innerHTML = filas;
+  } catch (error) {
+    console.log(error);
+  }
+}
 
 
 async function addtask(event) {
@@ -22,6 +51,7 @@ async function addtask(event) {
     const data = await response.json();
     if (data.success) {
       alert("Añadido correctamente");
+      getTasks();
     } else {
       alert("No se puedo añadir");
     }
@@ -30,28 +60,7 @@ async function addtask(event) {
   }
 }
 
-async function getTasks() {
-  let tabla = document.getElementById("taskList");
-  try {
-    const response = await fetch("/tasks", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
 
-    const data = await response.json();
-    let lista = data.tareas;
-    let filas = "";
-    for (let index = 0; index < lista.length; index++) {
-      let tarea = lista[index];
-      filas += `<tr><td>${tarea.titulo}</td><td>${tarea.descripcion}</td><td>${tarea.completado}</td></tr>`;
-    }
-    tabla.innerHTML = filas;
-  } catch (error) {
-    console.log("Error inesperado");
-  }
-}
 
 async function deleteTask() {
     const titulo = document.getElementById("tituloOpcion").value;
@@ -67,6 +76,7 @@ async function deleteTask() {
         const data = await response.json();
         if (data.success) {
         alert("Eliminado correctamente");
+        getTasks();
         } else {
         alert("No se puedo eliminar");
         }
@@ -89,6 +99,7 @@ async function tickTask() {
         const data = await response.json();
         if (data.success) {
         alert("Tarea completada");
+        getTasks();
         } else {
         alert("No se puedo completar la tarea");
         }
@@ -109,10 +120,14 @@ async function getTask() {
       },
     });
     
+    let imagen = "img/cruz.png";
     let tabla = document.getElementById("taskList");
     const data = await response.json();
     let tarea = data.tarea;
-    let fila = `<tr><td>${tarea.titulo}</td><td>${tarea.descripcion}</td><td>${tarea.completado}</td></tr>`;
+    if(tarea.completado == true){
+      imagen = "img/tick.png";
+    }
+    let fila =  `<tr><td>${tarea.titulo}</td><td>${tarea.descripcion}</td><td><img src="${imagen}" id="imgCompletado"></td></tr>`;
     tabla.innerHTML = fila;
     
     
@@ -120,3 +135,6 @@ async function getTask() {
     console.log(error);
   }
 }
+
+
+
