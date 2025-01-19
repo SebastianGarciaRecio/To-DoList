@@ -55,6 +55,8 @@ module.exports = {
   tickTask: (titulo) => {
     let resultado = false;
     for (let index = 0; index < lista.length; index++) {
+      console.log(lista[index].titulo);
+      console.log(titulo);
       if (lista[index].titulo == titulo) {
         lista[index].complete();
         resultado = true;
