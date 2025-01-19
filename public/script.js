@@ -54,10 +54,7 @@ async function addtask(event) {
 
     const data = await response.json();
     if (data.success) {
-      alert("Añadido correctamente");
       getTasks();
-    } else {
-      alert("No se puedo añadir");
     }
   } catch (error) {
     console.log("Error inesperado");
@@ -78,14 +75,11 @@ async function deleteTask() {
 
     const data = await response.json();
     if (data.success) {
-      alert("Eliminado correctamente");
       if (allTasks) {
         getTasks();
       } else {
         getTask();
       }
-    } else {
-      alert("No se puedo eliminar");
     }
   } catch (error) {
     console.log("Error inesperado");
@@ -106,14 +100,11 @@ async function tickTask() {
 
     const data = await response.json();
     if (data.success) {
-      alert("Tarea completada");
       if (allTasks) {
         getTasks();
       } else {
         getTask();
       }
-    } else {
-      alert("No se puedo completar la tarea");
     }
   } catch (error) {}
 }
